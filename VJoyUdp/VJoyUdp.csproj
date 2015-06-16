@@ -140,7 +140,6 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
-    <None Include="Resources\gamecontroller.res" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -166,9 +165,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\play87_gray.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\imageres.dll" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\gamecontroller.ico" />

@@ -22,14 +22,14 @@
         <Label Grid.Row="1" Grid.Column="0">Joystick Id</Label>
         <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cbJoyIdx">
             <ComboBox.Items>
-                <ComboBoxItem>Virtual Joystick 0</ComboBoxItem>
+                <ComboBoxItem IsSelected="True">Virtual Joystick 0</ComboBoxItem>
                 <ComboBoxItem>Virtual Joystick 1</ComboBoxItem>
             </ComboBox.Items>
         </ComboBox>
         
 
-        <Button Grid.Row="1" Grid.Column="2" x:Name="btnStart">Start</Button>
-        <Button Grid.Row="1" Grid.Column="3" x:Name="btnStop" IsEnabled="False">Stop</Button>
+        <Button Grid.Row="1" Grid.Column="2" x:Name="btnStart" Click="btnStart_Click">Start</Button>
+        <Button Grid.Row="1" Grid.Column="3" x:Name="btnStop" IsEnabled="False" Click="btnStop_Click">Stop</Button>
         
         
     </Grid>

@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 
 namespace VJoy
 {
-    class VJoy
+    public class VJoy
     {
 		private bool m_mode64 = false;
 	
@@ -209,6 +209,11 @@ namespace VJoy
             m_joyState[index].POV |= (ushort)((int)value << ((3 - pov) * 4));
         }
 
+        public void SetPOVRaw(int index, ushort pov)
+        {
+            m_joyState[index].POV = pov;
+        }
+
         public POVType GetPOV(int index, int pov)
         {
             return (POVType)((m_joyState[index].POV >> ((3 - pov) * 4)) & 0xf);
@@ -220,6 +225,11 @@ namespace VJoy
                 m_joyState[index].Buttons |= (uint)(1 << button);
             else
                 m_joyState[index].Buttons &= (uint)~(1 << button);
+        }
+
+        public void SetButtonRaw(int index, uint buttons)
+        {
+            m_joyState[index].Buttons = buttons;
         }
 
         public bool GetButton(int index, int button)

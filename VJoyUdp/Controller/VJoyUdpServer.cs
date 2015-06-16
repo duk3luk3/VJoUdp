@@ -21,6 +21,7 @@ namespace VJoyUdp.Controller
         public VJoyUdpServer(int port, int joyidx)
         {
             r = new VJoyUdpReceiver(port);
+            r.MessageEvent += HandleMessage;
             this.joyidx = joyidx;
 
             vjoy = new VJoy.VJoy();
@@ -45,9 +46,9 @@ namespace VJoyUdp.Controller
             vjoy.Update(joyidx);
         }
 
-        public void run()
+        public bool run()
         {
-            r.Receive();
+            return r.Receive();
         }
 
         public void shutdown()
@@ -70,7 +71,7 @@ namespace VJoyUdp.Controller
             udpsock.Client.ReceiveTimeout = 500;
         }
 
-        public void Receive()
+        public bool Receive()
         {
             IPEndPoint ep = null;
             MemoryStream stream = new MemoryStream();
@@ -82,11 +83,12 @@ namespace VJoyUdp.Controller
             }
             catch (SocketException e)
             {
-                return;
+                return false;
             }
             if (bytes != null && bytes.Length > 0)
             {
                 stream.Write(bytes, 0, bytes.Length);
+                stream.Seek(0, SeekOrigin.Begin);
 
                 VJoy.VJoy.JoystickState s = new VJoy.VJoy.JoystickState();
 
@@ -105,11 +107,13 @@ namespace VJoyUdp.Controller
                 }
                 catch (EndOfStreamException e)
                 {
-                    return;
+                    return false;
                 }
 
                 OnRaiseJoyStickMessage(s);
+                return true;
             }
+            return false;
         }
 
         public void Shutdown()

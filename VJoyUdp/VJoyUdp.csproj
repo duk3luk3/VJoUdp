@@ -167,7 +167,9 @@
     <None Include="Resources\play87_gray.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\gamecontroller.ico" />
+    <None Include="Resources\gamecontroller.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

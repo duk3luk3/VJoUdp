@@ -1,0 +1,36 @@
+﻿<Window x:Class="VJoyUdp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="VJoy UDP Receiver" Height="350" Width="525">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        
+        <Label Grid.Row="0" Grid.Column="0">Port</Label>
+        <TextBox Grid.Row="0" Grid.Column="1" x:Name="tbPort">4242</TextBox>
+
+        <Label Grid.Row="1" Grid.Column="0">Joystick Id</Label>
+        <ComboBox Grid.Row="1" Grid.Column="1" x:Name="cbJoyIdx">
+            <ComboBox.Items>
+                <ComboBoxItem>Virtual Joystick 0</ComboBoxItem>
+                <ComboBoxItem>Virtual Joystick 1</ComboBoxItem>
+            </ComboBox.Items>
+        </ComboBox>
+        
+
+        <Button Grid.Row="1" Grid.Column="2" x:Name="btnStart">Start</Button>
+        <Button Grid.Row="1" Grid.Column="3" x:Name="btnStop" IsEnabled="False">Stop</Button>
+        
+        
+    </Grid>
+</Window>
